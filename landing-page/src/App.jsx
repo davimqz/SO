@@ -36,7 +36,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900">
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 text-gray-100">
       <Navbar
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
@@ -44,7 +44,7 @@ function App() {
         scrollToSection={scrollToSection}
       />
       <Hero scrollToSection={scrollToSection} />
-      <Section id="o-que-e" title="O que é Exclusão Mútua?" className="bg-white/5">
+      <Section id="o-que-e" title="O que é Exclusão Mútua?" className="bg-gradient-to-r from-gray-800 to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
