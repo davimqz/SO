@@ -36,7 +36,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 text-gray-100">
+    <div className="min-h-screen bg-gray-800 text-gray-100">
       <Navbar
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
@@ -44,7 +44,7 @@ function App() {
         scrollToSection={scrollToSection}
       />
       <Hero scrollToSection={scrollToSection} />
-      <Section id="o-que-e" title="O que é Exclusão Mútua?" className="bg-gradient-to-r from-gray-800 to-gray-900">
+      <Section id="o-que-e" title="O que é Exclusão Mútua?" className="bg-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -53,20 +53,20 @@ function App() {
               </p>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2"></div>
+                  <div className="w-2 h-2 bg-gray-500 rounded-full mt-2"></div>
                   <p className="text-gray-300"><strong className="text-white">Sincronização:</strong> Coordena o acesso a recursos entre múltiplos processos</p>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2"></div>
+                  <div className="w-2 h-2 bg-gray-500 rounded-full mt-2"></div>
                   <p className="text-gray-300"><strong className="text-white">Consistência:</strong> Mantém a integridade dos dados compartilhados</p>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2"></div>
+                  <div className="w-2 h-2 bg-gray-500 rounded-full mt-2"></div>
                   <p className="text-gray-300"><strong className="text-white">Segurança:</strong> Previne condições de corrida e corrupção de dados</p>
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-purple-800/30 to-blue-800/30 p-8 rounded-2xl border border-purple-500/30">
+            <div className="bg-gray-600 p-8 rounded-2xl border border-gray-500">
               <h3 className="text-xl font-bold text-white mb-4">Propriedades Essenciais</h3>
               <ul className="space-y-3 text-gray-300">
                 <li>✅ <strong>Safety:</strong> No máximo um processo na região crítica</li>
@@ -77,25 +77,25 @@ function App() {
           </div>
         </div>
       </Section>
-      <Section id="desafios" title="Desafios em Sistemas Distribuídos">
+      <Section id="desafios" title="Desafios em Sistemas Distribuídos" className="bg-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-red-800/30 to-orange-800/30 p-6 rounded-2xl border border-red-500/30">
-              <div className="text-red-400 text-3xl mb-4 flex items-center justify-center">
+            <div className="bg-gray-600 p-6 rounded-2xl border border-gray-500">
+              <div className="text-gray-400 text-3xl mb-4 flex items-center justify-center">
                 <FaExclamationTriangle />
               </div>
               <h3 className="text-xl font-bold text-white mb-3">Ausência de Relógio Global</h3>
               <p className="text-gray-300">Diferentes nós podem ter noções distintas de tempo, dificultando a sincronização temporal.</p>
             </div>
-            <div className="bg-gradient-to-br from-yellow-800/30 to-orange-800/30 p-6 rounded-2xl border border-yellow-500/30">
-              <div className="text-yellow-400 text-3xl mb-4 flex items-center justify-center">
+            <div className="bg-gray-600 p-6 rounded-2xl border border-gray-500">
+              <div className="text-gray-400 text-3xl mb-4 flex items-center justify-center">
                 <FaGlobe />
               </div>
               <h3 className="text-xl font-bold text-white mb-3">Falhas de Rede</h3>
               <p className="text-gray-300">Mensagens podem ser perdidas, duplicadas ou entregues fora de ordem na rede.</p>
             </div>
-            <div className="bg-gradient-to-br from-blue-800/30 to-purple-800/30 p-6 rounded-2xl border border-blue-500/30">
-              <div className="text-blue-400 text-3xl mb-4 flex items-center justify-center">
+            <div className="bg-gray-600 p-6 rounded-2xl border border-gray-500">
+              <div className="text-gray-400 text-3xl mb-4 flex items-center justify-center">
                 <FaLaptop />
               </div>
               <h3 className="text-xl font-bold text-white mb-3">Falhas de Nós</h3>
@@ -122,11 +122,11 @@ function App() {
           </div>
         </div>
       </Section>
-      <Section id="familias" title="Famílias de Algoritmos" className="bg-white/5">
+      <Section id="familias" title="Famílias de Algoritmos" className="bg-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-12">
             {/* Algoritmos Centralizados */}
-            <div className="bg-gradient-to-r from-green-800/30 to-emerald-800/30 p-8 rounded-2xl border border-green-500/30">
+            <div className="bg-gray-600 p-8 rounded-2xl border border-gray-500">
               <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
                 <FaUniversity className="mr-3" />
                 Algoritmos Centralizados
@@ -153,7 +153,7 @@ function App() {
             </div>
 
             {/* Algoritmos Distribuídos */}
-            <div className="bg-gradient-to-r from-blue-800/30 to-cyan-800/30 p-8 rounded-2xl border border-blue-500/30">
+            <div className="bg-gray-600 p-8 rounded-2xl border border-gray-500">
               <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
                 <FaGlobe className="mr-3" />
                 Algoritmos Distribuídos
@@ -180,7 +180,7 @@ function App() {
             </div>
 
             {/* Algoritmos Baseados em Token */}
-            <div className="bg-gradient-to-r from-purple-800/30 to-pink-800/30 p-8 rounded-2xl border border-purple-500/30">
+            <div className="bg-gray-600 p-8 rounded-2xl border border-gray-500">
               <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
                 <FaTicketAlt className="mr-3" />
                 Algoritmos Baseados em Token
@@ -264,24 +264,24 @@ function App() {
             <h3 className="text-2xl font-bold text-white mb-8 text-center">Componentes Típicos com RMI</h3>
             
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="bg-gradient-to-br from-blue-600 to-blue-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-gray-600 p-6 rounded-2xl border border-gray-500 text-center">
+                <div className="bg-gray-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <FaUniversity className="text-white text-2xl" />
                 </div>
                 <h4 className="text-lg font-bold text-white mb-3">Registry Service</h4>
                 <p className="text-gray-300">Serviço de descoberta e registro de objetos remotos distribuídos.</p>
               </div>
               
-              <div className="text-center">
-                <div className="bg-gradient-to-br from-green-600 to-green-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-gray-600 p-6 rounded-2xl border border-gray-500 text-center">
+                <div className="bg-gray-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <FaLock className="text-white text-2xl" />
                 </div>
                 <h4 className="text-lg font-bold text-white mb-3">Lock Manager</h4>
                 <p className="text-gray-300">Componente responsável pela coordenação e concessão de locks distribuídos.</p>
               </div>
               
-              <div className="text-center">
-                <div className="bg-gradient-to-br from-purple-600 to-purple-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-gray-600 p-6 rounded-2xl border border-gray-500 text-center">
+                <div className="bg-gray-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <FaSatelliteDish className="text-white text-2xl" />
                 </div>
                 <h4 className="text-lg font-bold text-white mb-3">Client Proxies</h4>
@@ -307,141 +307,41 @@ function App() {
           </div>
         </div>
       </Section>
-      <Section id="quando-usar" title="Quando Usar o Quê?" className="bg-white/5">
+      <Section id="quando-usar" title="Quando Usar o Quê?" className="bg-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-12">
-            {/* Decision Matrix */}
-            <div className="bg-gradient-to-br from-indigo-800/30 to-purple-800/30 p-8 rounded-2xl border border-indigo-500/30">
-              <h3 className="text-2xl font-bold text-white mb-6">Matriz de Decisão</h3>
-              <div className="overflow-x-auto">
-                <table className="w-full text-gray-300">
-                  <thead>
-                    <tr className="border-b border-gray-600">
-                      <th className="text-left py-3 px-2 text-white">Cenário</th>
-                      <th className="text-left py-3 px-2 text-white">Abordagem Recomendada</th>
-                      <th className="text-left py-3 px-2 text-white">Justificativa</th>
-                    </tr>
-                  </thead>
-                  <tbody className="space-y-2">
-                    <tr className="border-b border-gray-700">
-                      <td className="py-3 px-2">Sistema pequeno (&lt;10 nós)</td>
-                      <td className="py-3 px-2 text-green-300">Centralizado com RMI</td>
-                      <td className="py-3 px-2">Simplicidade e baixo overhead</td>
-                    </tr>
-                    <tr className="border-b border-gray-700">
-                      <td className="py-3 px-2">Alta disponibilidade crítica</td>
-                      <td className="py-3 px-2 text-blue-300">Distribuído (Lamport)</td>
-                      <td className="py-3 px-2">Sem ponto único de falha</td>
-                    </tr>
-                    <tr className="border-b border-gray-700">
-                      <td className="py-3 px-2">Fairness é prioritária</td>
-                      <td className="py-3 px-2 text-purple-300">Token Ring</td>
-                      <td className="py-3 px-2">Garantia de acesso ordenado</td>
-                    </tr>
-                    <tr className="border-b border-gray-700">
-                      <td className="py-3 px-2">Baixa frequência de acesso</td>
-                      <td className="py-3 px-2 text-yellow-300">Ricart-Agrawala</td>
-                      <td className="py-3 px-2">Eficiente para poucos requests</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            {/* Detailed Recommendations */}
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <div className="bg-gradient-to-br from-green-800/30 to-emerald-800/30 p-6 rounded-xl border border-green-500/30">
-                  <h4 className="text-xl font-bold text-white mb-3 flex items-center">
-                    <span className="mr-2">✅</span>
-                    Use Algoritmos Centralizados Quando:
-                  </h4>
-                  <ul className="text-gray-300 space-y-2">
-                    <li>• Sistema tem poucos nós (&lt;20)</li>
-                    <li>• Performance é mais importante que disponibilidade</li>
-                    <li>• Infraestrutura de rede é confiável</li>
-                    <li>• Simplicidade de implementação é crucial</li>
-                    <li>• Existe tolerância a reinicializações</li>
-                  </ul>
-                </div>
-
-                <div className="bg-gradient-to-br from-orange-800/30 to-red-800/30 p-6 rounded-xl border border-orange-500/30">
-                  <h4 className="text-xl font-bold text-white mb-3 flex items-center">
-                    <span className="mr-2">⚠️</span>
-                    Evite RMI Quando:
-                  </h4>
-                  <ul className="text-gray-300 space-y-2">
-                    <li>• Latência de rede é muito alta</li>
-                    <li>• Sistema precisa ser heterogêneo</li>
-                    <li>• Segurança é crítica (firewall issues)</li>
-                    <li>• Escalabilidade extrema é necessária</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                <div className="bg-gradient-to-br from-blue-800/30 to-cyan-800/30 p-6 rounded-xl border border-blue-500/30">
-                  <h4 className="text-xl font-bold text-white mb-3 flex items-center">
-                    <span className="mr-2">🌐</span>
-                    Use Algoritmos Distribuídos Quando:
-                  </h4>
-                  <ul className="text-gray-300 space-y-2">
-                    <li>• Alta disponibilidade é crítica</li>
-                    <li>• Sistema tem muitos nós (&gt;50)</li>
-                    <li>• Falhas de nós são frequentes</li>
-                    <li>• Não há infraestrutura centralizada</li>
-                    <li>• Autonomia dos nós é importante</li>
-                  </ul>
-                </div>
-
-                <div className="bg-gradient-to-br from-purple-800/30 to-pink-800/30 p-6 rounded-xl border border-purple-500/30">
-                  <h4 className="text-xl font-bold text-white mb-3 flex items-center">
-                    <span className="mr-2">🎯</span>
-                    Considerações para RMI:
-                  </h4>
-                  <ul className="text-gray-300 space-y-2">
-                    <li>• Excelente para sistemas Java puros</li>
-                    <li>• Boa integração com ferramentas Java</li>
-                    <li>• Suporte nativo a callbacks</li>
-                    <li>• Gerenciamento automático de referências</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Best Practices */}
-            <div className="bg-gradient-to-r from-gray-800/30 to-slate-800/30 p-8 rounded-2xl border border-gray-500/30">
-              <h3 className="text-2xl font-bold text-white mb-6 text-center">Melhores Práticas</h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div>
-                  <h4 className="text-lg font-semibold text-yellow-300 mb-3">🔧 Implementação</h4>
-                  <ul className="text-gray-300 space-y-1 text-sm">
-                    <li>• Sempre implemente timeouts</li>
-                    <li>• Use connection pooling</li>
-                    <li>• Monitore performance da rede</li>
-                    <li>• Implemente retry mechanisms</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-green-300 mb-3">🛡️ Recuperação</h4>
-                  <ul className="text-gray-300 space-y-1 text-sm">
-                    <li>• Detecte falhas rapidamente</li>
-                    <li>• Tenha planos de fallback</li>
-                    <li>• Implemente limpeza de locks órfãos</li>
-                    <li>• Use heartbeat mechanisms</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-blue-300 mb-3">📊 Monitoramento</h4>
-                  <ul className="text-gray-300 space-y-1 text-sm">
-                    <li>• Meça latência end-to-end</li>
-                    <li>• Monitore deadlocks</li>
-                    <li>• Trace requisições distribuídas</li>
-                    <li>• Analise padrões de contenção</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+          <div className="bg-gray-600 p-8 rounded-2xl border border-gray-500">
+            <h3 className="text-2xl font-bold text-white mb-6">Matriz de Decisão</h3>
+            <table className="w-full text-gray-300">
+              <thead>
+                <tr className="border-b border-gray-500">
+                  <th className="text-left py-3 px-2 text-white">Cenário</th>
+                  <th className="text-left py-3 px-2 text-white">Abordagem Recomendada</th>
+                  <th className="text-left py-3 px-2 text-white">Justificativa</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-gray-500">
+                  <td className="py-3 px-2">Sistema pequeno (&lt;10 nós)</td>
+                  <td className="py-3 px-2 text-gray-400">Centralizado com RMI</td>
+                  <td className="py-3 px-2">Simplicidade e baixo overhead</td>
+                </tr>
+                <tr className="border-b border-gray-500">
+                  <td className="py-3 px-2">Alta disponibilidade crítica</td>
+                  <td className="py-3 px-2 text-gray-400">Distribuído (Lamport)</td>
+                  <td className="py-3 px-2">Sem ponto único de falha</td>
+                </tr>
+                <tr className="border-b border-gray-500">
+                  <td className="py-3 px-2">Fairness é prioritária</td>
+                  <td className="py-3 px-2 text-gray-400">Token Ring</td>
+                  <td className="py-3 px-2">Garantia de acesso ordenado</td>
+                </tr>
+                <tr className="border-b border-gray-500">
+                  <td className="py-3 px-2">Baixa frequência de acesso</td>
+                  <td className="py-3 px-2 text-gray-400">Ricart-Agrawala</td>
+                  <td className="py-3 px-2">Eficiente para poucos requests</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </Section>
