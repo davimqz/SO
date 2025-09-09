@@ -1,130 +1,51 @@
-import { useState, useEffect } from 'react'
-import './App.css'
+import { useState, useEffect } from 'react';
+import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import Hero from './components/Hero/Hero';
+import Section from './components/Sections/Section';
+import { FaUniversity, FaGlobe, FaTicketAlt, FaLock, FaSatelliteDish, FaSyncAlt, FaBolt, FaExclamationTriangle, FaLaptop } from 'react-icons/fa';
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('')
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'o-que-e', 'desafios', 'familias', 'rmi', 'quando-usar']
-      const current = sections.find(section => {
-        const element = document.getElementById(section)
+      const sections = ['hero', 'o-que-e', 'desafios', 'familias', 'rmi', 'quando-usar'];
+      const current = sections.find((section) => {
+        const element = document.getElementById(section);
         if (element) {
-          const rect = element.getBoundingClientRect()
-          return rect.top <= 100 && rect.bottom >= 100
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
         }
-        return false
-      })
-      if (current) setActiveSection(current)
-    }
+        return false;
+      });
+      if (current) setActiveSection(current);
+    };
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-    setIsMenuOpen(false)
-  }
+    setIsMenuOpen(false);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/10 backdrop-blur-md z-50 border-b border-white/20">
+      <Navbar
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+        activeSection={activeSection}
+        scrollToSection={scrollToSection}
+      />
+      <Hero scrollToSection={scrollToSection} />
+      <Section id="o-que-e" title="O que é Exclusão Mútua?" className="bg-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="text-white font-bold text-xl">RMI & Exclusão Mútua</div>
-            
-            {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-8">
-              {[
-                { id: 'o-que-e', label: 'O que é' },
-                { id: 'desafios', label: 'Desafios' },
-                { id: 'familias', label: 'Famílias' },
-                { id: 'rmi', label: 'RMI' },
-                { id: 'quando-usar', label: 'Quando Usar' }
-              ].map(item => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`text-white hover:text-purple-300 transition-colors ${
-                    activeSection === item.id ? 'text-purple-300 border-b-2 border-purple-300' : ''
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden text-white"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-
-          {/* Mobile Menu */}
-          {isMenuOpen && (
-            <div className="md:hidden bg-white/10 backdrop-blur-md rounded-lg mt-2 p-4">
-              {[
-                { id: 'o-que-e', label: 'O que é' },
-                { id: 'desafios', label: 'Desafios' },
-                { id: 'familias', label: 'Famílias' },
-                { id: 'rmi', label: 'RMI' },
-                { id: 'quando-usar', label: 'Quando Usar' }
-              ].map(item => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="block w-full text-left text-white hover:text-purple-300 py-2 transition-colors"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section id="hero" className="pt-16 min-h-screen flex items-center justify-center text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Solução de Exclusão Mútua
-            <span className="block text-purple-300">com RMI</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8">
-            Explore as técnicas avançadas de sincronização em sistemas distribuídos
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => scrollToSection('o-que-e')}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-            >
-              Começar Exploração
-            </button>
-            <button
-              onClick={() => scrollToSection('rmi')}
-              className="border-2 border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-            >
-              Ver RMI
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* O que é Section */}
-      <section id="o-que-e" className="py-20 bg-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">O que é Exclusão Mútua?</h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-gray-300 text-lg mb-6 leading-relaxed">
@@ -155,25 +76,28 @@ function App() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Desafios Section */}
-      <section id="desafios" className="py-20">
+      </Section>
+      <Section id="desafios" title="Desafios em Sistemas Distribuídos">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Desafios em Sistemas Distribuídos</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gradient-to-br from-red-800/30 to-orange-800/30 p-6 rounded-2xl border border-red-500/30">
-              <div className="text-red-400 text-3xl mb-4">⚠️</div>
+              <div className="text-red-400 text-3xl mb-4 flex items-center justify-center">
+                <FaExclamationTriangle />
+              </div>
               <h3 className="text-xl font-bold text-white mb-3">Ausência de Relógio Global</h3>
               <p className="text-gray-300">Diferentes nós podem ter noções distintas de tempo, dificultando a sincronização temporal.</p>
             </div>
             <div className="bg-gradient-to-br from-yellow-800/30 to-orange-800/30 p-6 rounded-2xl border border-yellow-500/30">
-              <div className="text-yellow-400 text-3xl mb-4">🌐</div>
+              <div className="text-yellow-400 text-3xl mb-4 flex items-center justify-center">
+                <FaGlobe />
+              </div>
               <h3 className="text-xl font-bold text-white mb-3">Falhas de Rede</h3>
               <p className="text-gray-300">Mensagens podem ser perdidas, duplicadas ou entregues fora de ordem na rede.</p>
             </div>
             <div className="bg-gradient-to-br from-blue-800/30 to-purple-800/30 p-6 rounded-2xl border border-blue-500/30">
-              <div className="text-blue-400 text-3xl mb-4">💻</div>
+              <div className="text-blue-400 text-3xl mb-4 flex items-center justify-center">
+                <FaLaptop />
+              </div>
               <h3 className="text-xl font-bold text-white mb-3">Falhas de Nós</h3>
               <p className="text-gray-300">Processos podem falhar de forma parcial ou total, afetando a disponibilidade do sistema.</p>
             </div>
@@ -197,18 +121,14 @@ function App() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Famílias de Algoritmos Section */}
-      <section id="familias" className="py-20 bg-white/5">
+      </Section>
+      <Section id="familias" title="Famílias de Algoritmos" className="bg-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Famílias de Algoritmos</h2>
-          
           <div className="space-y-12">
             {/* Algoritmos Centralizados */}
             <div className="bg-gradient-to-r from-green-800/30 to-emerald-800/30 p-8 rounded-2xl border border-green-500/30">
               <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
-                <span className="mr-3">🏛️</span>
+                <FaUniversity className="mr-3" />
                 Algoritmos Centralizados
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
@@ -235,7 +155,7 @@ function App() {
             {/* Algoritmos Distribuídos */}
             <div className="bg-gradient-to-r from-blue-800/30 to-cyan-800/30 p-8 rounded-2xl border border-blue-500/30">
               <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
-                <span className="mr-3">🌐</span>
+                <FaGlobe className="mr-3" />
                 Algoritmos Distribuídos
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
@@ -262,7 +182,7 @@ function App() {
             {/* Algoritmos Baseados em Token */}
             <div className="bg-gradient-to-r from-purple-800/30 to-pink-800/30 p-8 rounded-2xl border border-purple-500/30">
               <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
-                <span className="mr-3">🎫</span>
+                <FaTicketAlt className="mr-3" />
                 Algoritmos Baseados em Token
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
@@ -287,13 +207,9 @@ function App() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* RMI Section */}
-      <section id="rmi" className="py-20">
+      </Section>
+      <Section id="rmi" title="Onde entra o RMI?">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Onde entra o RMI?</h2>
-          
           <div className="mb-12 text-center">
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               RMI (Remote Method Invocation) fornece a infraestrutura de comunicação necessária para implementar algoritmos de exclusão mútua em sistemas distribuídos.
@@ -350,7 +266,7 @@ function App() {
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="bg-gradient-to-br from-blue-600 to-blue-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🏛️</span>
+                  <FaUniversity className="text-white text-2xl" />
                 </div>
                 <h4 className="text-lg font-bold text-white mb-3">Registry Service</h4>
                 <p className="text-gray-300">Serviço de descoberta e registro de objetos remotos distribuídos.</p>
@@ -358,7 +274,7 @@ function App() {
               
               <div className="text-center">
                 <div className="bg-gradient-to-br from-green-600 to-green-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🔐</span>
+                  <FaLock className="text-white text-2xl" />
                 </div>
                 <h4 className="text-lg font-bold text-white mb-3">Lock Manager</h4>
                 <p className="text-gray-300">Componente responsável pela coordenação e concessão de locks distribuídos.</p>
@@ -366,7 +282,7 @@ function App() {
               
               <div className="text-center">
                 <div className="bg-gradient-to-br from-purple-600 to-purple-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">📡</span>
+                  <FaSatelliteDish className="text-white text-2xl" />
                 </div>
                 <h4 className="text-lg font-bold text-white mb-3">Client Proxies</h4>
                 <p className="text-gray-300">Interfaces locais que abstraem a comunicação com serviços remotos.</p>
@@ -375,24 +291,24 @@ function App() {
             
             <div className="mt-8 grid md:grid-cols-2 gap-8">
               <div className="bg-gradient-to-br from-orange-800/30 to-red-800/30 p-6 rounded-xl border border-orange-500/30">
-                <h4 className="text-lg font-bold text-white mb-3">🔄 Callback Handlers</h4>
+                <h4 className="text-lg font-bold text-white mb-3 flex items-center">
+                  <FaSyncAlt className="mr-2" /> Callback Handlers
+                </h4>
                 <p className="text-gray-300">Gerenciam notificações assíncronas sobre mudanças de estado dos locks.</p>
               </div>
               
               <div className="bg-gradient-to-br from-teal-800/30 to-cyan-800/30 p-6 rounded-xl border border-teal-500/30">
-                <h4 className="text-lg font-bold text-white mb-3">⚡ Failure Detectors</h4>
+                <h4 className="text-lg font-bold text-white mb-3 flex items-center">
+                  <FaBolt className="mr-2" /> Failure Detectors
+                </h4>
                 <p className="text-gray-300">Detectam falhas em processos remotos e iniciam procedimentos de recuperação.</p>
               </div>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Quando Usar Section */}
-      <section id="quando-usar" className="py-20 bg-white/5">
+      </Section>
+      <Section id="quando-usar" title="Quando Usar o Quê?" className="bg-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Quando Usar o Quê?</h2>
-          
           <div className="space-y-12">
             {/* Decision Matrix */}
             <div className="bg-gradient-to-br from-indigo-800/30 to-purple-800/30 p-8 rounded-2xl border border-indigo-500/30">
@@ -528,8 +444,7 @@ function App() {
             </div>
           </div>
         </div>
-      </section>
-
+      </Section>
       {/* Footer */}
       <footer className="py-12 bg-black/20 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -537,7 +452,7 @@ function App() {
             Exclusão Mútua em Sistemas Distribuídos com RMI
           </p>
           <p className="text-gray-500 text-sm">
-            Desenvolvido para fins educacionais • {new Date().getFullYear()}
+            Grupo G6 - RMI • {new Date().getFullYear()}
           </p>
         </div>
       </footer>
